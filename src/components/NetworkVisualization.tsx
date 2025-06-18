@@ -1,4 +1,3 @@
-
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -30,23 +29,18 @@ const NetworkConnection = ({ start, end, color = '#8b5cf6' }: {
   end: [number, number, number];
   color?: string;
 }) => {
-  const points = useMemo(() => {
-    return new Float32Array([
+  const geometry = useMemo(() => {
+    const geom = new THREE.BufferGeometry();
+    const points = new Float32Array([
       start[0], start[1], start[2],
       end[0], end[1], end[2]
     ]);
+    geom.setAttribute('position', new THREE.BufferAttribute(points, 3));
+    return geom;
   }, [start, end]);
 
   return (
-    <line>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={2}
-          array={points}
-          itemSize={3}
-        />
-      </bufferGeometry>
+    <line geometry={geometry}>
       <lineBasicMaterial color={color} transparent opacity={0.6} />
     </line>
   );
