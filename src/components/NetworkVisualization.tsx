@@ -19,7 +19,7 @@ const NetworkNode = ({ position, color = '#3b82f6', size = 0.1 }: {
   });
 
   return (
-    <Sphere ref={meshRef} position={position} args={[size]}>
+    <Sphere ref={meshRef} position={position} args={[size, 32, 32]}>
       <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.2} />
     </Sphere>
   );
@@ -55,7 +55,7 @@ const AnimatedNetwork = () => {
     }
   });
 
-  const nodes = [
+  const nodes = useMemo(() => [
     { pos: [0, 0, 0] as [number, number, number], color: '#3b82f6', size: 0.15 },
     { pos: [2, 1, 0] as [number, number, number], color: '#10b981', size: 0.1 },
     { pos: [-2, -1, 0] as [number, number, number], color: '#f59e0b', size: 0.1 },
@@ -63,9 +63,9 @@ const AnimatedNetwork = () => {
     { pos: [-1, 2, -1] as [number, number, number], color: '#8b5cf6', size: 0.1 },
     { pos: [2, -1, -1] as [number, number, number], color: '#06b6d4', size: 0.1 },
     { pos: [-2, 1, 1] as [number, number, number], color: '#f97316', size: 0.1 },
-  ];
+  ], []);
 
-  const connections = [
+  const connections = useMemo(() => [
     { start: [0, 0, 0] as [number, number, number], end: [2, 1, 0] as [number, number, number] },
     { start: [0, 0, 0] as [number, number, number], end: [-2, -1, 0] as [number, number, number] },
     { start: [0, 0, 0] as [number, number, number], end: [1, -2, 1] as [number, number, number] },
@@ -74,20 +74,20 @@ const AnimatedNetwork = () => {
     { start: [0, 0, 0] as [number, number, number], end: [-2, 1, 1] as [number, number, number] },
     { start: [2, 1, 0] as [number, number, number], end: [1, -2, 1] as [number, number, number] },
     { start: [-2, -1, 0] as [number, number, number], end: [-1, 2, -1] as [number, number, number] },
-  ];
+  ], []);
 
   return (
     <group ref={groupRef}>
       {connections.map((connection, index) => (
         <NetworkConnection
-          key={index}
+          key={`connection-${index}`}
           start={connection.start}
           end={connection.end}
         />
       ))}
       {nodes.map((node, index) => (
         <NetworkNode
-          key={index}
+          key={`node-${index}`}
           position={node.pos}
           color={node.color}
           size={node.size}
@@ -100,7 +100,11 @@ const AnimatedNetwork = () => {
 const NetworkVisualization = () => {
   return (
     <div className="w-full h-full">
-      <Canvas camera={{ position: [0, 0, 6], fov: 60 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 6], fov: 60 }}
+        gl={{ antialias: true }}
+        dpr={[1, 2]}
+      >
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={1} />
         <pointLight position={[-10, -10, -10]} intensity={0.5} />
