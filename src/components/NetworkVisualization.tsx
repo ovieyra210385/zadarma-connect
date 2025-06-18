@@ -1,8 +1,18 @@
 
 import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Sphere, Line, Text } from '@react-three/drei';
+import { Canvas, useFrame, extend } from '@react-three/fiber';
+import { Sphere, Line } from '@react-three/drei';
 import * as THREE from 'three';
+
+// Extend Three.js objects for JSX usage
+extend({ 
+  Mesh: THREE.Mesh,
+  SphereGeometry: THREE.SphereGeometry,
+  MeshStandardMaterial: THREE.MeshStandardMaterial,
+  Group: THREE.Group,
+  AmbientLight: THREE.AmbientLight,
+  PointLight: THREE.PointLight
+});
 
 const NetworkNode = ({ position, color = '#3b82f6', size = 0.1 }: {
   position: [number, number, number];
