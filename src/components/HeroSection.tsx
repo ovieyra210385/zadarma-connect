@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Phone, Wifi, Globe, Shield } from 'lucide-react';
+import { ArrowRight, Phone, Wifi, Globe, Shield, Bot, MessageSquare, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import NetworkVisualization from './NetworkVisualization';
@@ -8,29 +8,29 @@ import NetworkVisualization from './NetworkVisualization';
 const HeroSection = () => {
   const features = [
     {
-      icon: Phone,
-      title: "PBX en la Nube",
-      description: "Centralita virtual disponible 24/7"
+      icon: Bot,
+      title: "WhatsApp BOT Inteligente",
+      description: "Automatiza respuestas 24/7 con IA avanzada"
     },
     {
-      icon: Globe,
-      title: "Conectividad Global",
-      description: "Números virtuales en todo el mundo"
+      icon: Users,
+      title: "CRM WhatsApp Business",
+      description: "Gestiona todos tus clientes desde una plataforma"
     },
     {
-      icon: Wifi,
-      title: "Configuración Rápida",
-      description: "Setup en minutos, no horas"
+      icon: MessageSquare,
+      title: "Campañas Masivas",
+      description: "Envía mensajes personalizados a miles de contactos"
     },
     {
       icon: Shield,
-      title: "Seguridad Avanzada",
-      description: "Protección empresarial garantizada"
+      title: "API Oficial WhatsApp",
+      description: "Integración certificada y completamente segura"
     }
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-green-900 via-emerald-900 to-teal-900 overflow-hidden">
       {/* 3D Background */}
       <div className="absolute inset-0 opacity-20">
         <NetworkVisualization />
@@ -42,48 +42,48 @@ const HeroSection = () => {
           {/* Left Column - Content */}
           <div className="text-white space-y-8">
             <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2 bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm">
+              <div className="inline-flex items-center space-x-2 bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Conectado 24/7 • 99.9% Uptime</span>
+                <span>WhatsApp Business API • BOT + CRM</span>
               </div>
               
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Zadarma
+                <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                  WhatsApp
                 </span>
                 <br />
-                <span className="text-white">Connect 3D</span>
+                <span className="text-white">Business Pro</span>
               </h1>
               
               <p className="text-xl text-gray-300 max-w-lg">
-                Revoluciona tu comunicación empresarial con nuestra plataforma PBX 3D. 
-                Conectividad inteligente que mantiene tu negocio funcionando las 24 horas.
+                Transforma tu negocio con nuestro BOT inteligente y CRM integrado para WhatsApp Business. 
+                Automatiza conversaciones, gestiona clientes y multiplica tus ventas.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-lg px-8">
-                Prueba Gratuita
+              <Button size="lg" className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-lg px-8">
+                Crear mi BOT Gratis
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 text-lg px-8">
-                Ver Demo
+                Ver Demo WhatsApp
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">150+</div>
-                <div className="text-sm text-gray-400">Países</div>
+                <div className="text-3xl font-bold text-green-400">500K+</div>
+                <div className="text-sm text-gray-400">Mensajes/día</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400">10M+</div>
-                <div className="text-sm text-gray-400">Llamadas/mes</div>
+                <div className="text-3xl font-bold text-emerald-400">95%</div>
+                <div className="text-sm text-gray-400">Tasa apertura</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400">99.9%</div>
-                <div className="text-sm text-gray-400">Uptime</div>
+                <div className="text-3xl font-bold text-teal-400">24/7</div>
+                <div className="text-sm text-gray-400">Automatización</div>
               </div>
             </div>
           </div>
@@ -98,7 +98,7 @@ const HeroSection = () => {
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -118,8 +118,8 @@ const HeroSection = () => {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-purple-500/10 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-green-500/10 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-emerald-500/10 rounded-full blur-xl animate-pulse"></div>
     </div>
   );
 };
