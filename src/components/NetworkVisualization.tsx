@@ -1,7 +1,6 @@
 
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Sphere, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
 const NetworkNode = ({ position, color = '#3b82f6', size = 0.1 }: {
@@ -19,9 +18,10 @@ const NetworkNode = ({ position, color = '#3b82f6', size = 0.1 }: {
   });
 
   return (
-    <Sphere ref={meshRef} position={position} args={[size, 32, 32]}>
+    <mesh ref={meshRef} position={position}>
+      <sphereGeometry args={[size, 32, 32]} />
       <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.2} />
-    </Sphere>
+    </mesh>
   );
 };
 
@@ -30,19 +30,26 @@ const NetworkConnection = ({ start, end, color = '#8b5cf6' }: {
   end: [number, number, number];
   color?: string;
 }) => {
-  const points = useMemo(() => [
-    new THREE.Vector3(...start),
-    new THREE.Vector3(...end)
-  ], [start, end]);
+  const lineRef = useRef<THREE.BufferGeometry>(null);
+
+  const points = useMemo(() => {
+    const startVec = new THREE.Vector3(...start);
+    const endVec = new THREE.Vector3(...end);
+    return [startVec, endVec];
+  }, [start, end]);
 
   return (
-    <Line
-      points={points}
-      color={color}
-      lineWidth={2}
-      transparent
-      opacity={0.6}
-    />
+    <line>
+      <bufferGeometry ref={lineRef}>
+        <bufferAttribute
+          attach="attributes-position"
+          count={points.length}
+          array={new Float32Array(points.flatMap(p => [p.x, p.y, p.z]))}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <lineBasicMaterial color={color} transparent opacity={0.6} />
+    </line>
   );
 };
 
