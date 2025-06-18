@@ -3,6 +3,7 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import DownloadableResourceCard from '@/components/DownloadableResourceCard';
 import { 
   BookOpen, 
   Video, 
@@ -128,23 +129,35 @@ const Recursos = () => {
 
   const popularResources = [
     {
+      id: 'roi-calculator',
       title: "ROI Calculator WhatsApp BOT",
       description: "Calcula el retorno de inversión de implementar automatización",
-      type: "Herramienta",
+      type: "Herramienta HTML",
+      fileUrl: "#",
+      fileName: "roi-calculator-whatsapp.html",
+      size: "15 KB",
       rating: 4.9,
       downloads: "5,000+"
     },
     {
+      id: 'implementation-checklist',
       title: "Checklist de Implementación",
       description: "Lista paso a paso para configurar tu primer BOT",
       type: "PDF",
+      fileUrl: "#",
+      fileName: "checklist-implementacion-bot.txt",
+      size: "8 KB",
       rating: 4.8,
       downloads: "3,200+"
     },
     {
+      id: 'competitor-analysis',
       title: "Análisis de Competencia",
       description: "Template para analizar estrategias de WhatsApp de competidores",
-      type: "Excel",
+      type: "Excel CSV",
+      fileUrl: "#",
+      fileName: "analisis-competencia-whatsapp.csv",
+      size: "12 KB",
       rating: 4.7,
       downloads: "2,800+"
     }
@@ -164,6 +177,31 @@ const Recursos = () => {
             Todo lo que necesitas para dominar WhatsApp Business y maximizar
             el potencial de tu negocio
           </p>
+        </div>
+      </section>
+
+      {/* Popular Resources - Now with functional downloads */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Recursos Más Populares
+            </h2>
+            <p className="text-xl text-gray-600">
+              Los favoritos de nuestra comunidad - ¡Descarga gratis!
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {popularResources.map((resource) => (
+              <DownloadableResourceCard
+                key={resource.id}
+                resource={resource}
+                rating={resource.rating}
+                downloads={resource.downloads}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
