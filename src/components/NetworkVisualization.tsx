@@ -29,20 +29,33 @@ const NetworkConnection = ({ start, end, color = '#8b5cf6' }: {
   end: [number, number, number];
   color?: string;
 }) => {
-  const geometry = useMemo(() => {
-    const geom = new THREE.BufferGeometry();
-    const points = new Float32Array([
-      start[0], start[1], start[2],
-      end[0], end[1], end[2]
-    ]);
-    geom.setAttribute('position', new THREE.BufferAttribute(points, 3));
-    return geom;
+  const { geometry, position, rotation } = useMemo(() => {
+    const startVec = new THREE.Vector3(...start);
+    const endVec = new THREE.Vector3(...end);
+    const distance = startVec.distanceTo(endVec);
+    const midpoint = new THREE.Vector3().addVectors(startVec, endVec).multiplyScalar(0.5);
+    
+    // Create a cylinder geometry that will represent the line
+    const geom = new THREE.CylinderGeometry(0.01, 0.01, distance, 8);
+    
+    // Calculate rotation to align cylinder with the line direction
+    const direction = new THREE.Vector3().subVectors(endVec, startVec).normalize();
+    const up = new THREE.Vector3(0, 1, 0);
+    const axis = new THREE.Vector3().crossVectors(up, direction).normalize();
+    const angle = Math.acos(up.dot(direction));
+    
+    return {
+      geometry: geom,
+      position: [midpoint.x, midpoint.y, midpoint.z] as [number, number, number],
+      rotation: axis.length() > 0 ? [axis.x * angle, axis.y * angle, axis.z * angle] as [number, number, number] : [0, 0, 0] as [number, number, number]
+    };
   }, [start, end]);
 
   return (
-    <line geometry={geometry}>
-      <lineBasicMaterial color={color} transparent opacity={0.6} />
-    </line>
+    <mesh position={position} rotation={rotation}>
+      <primitive object={geometry} />
+      <meshBasicMaterial color={color} transparent opacity={0.6} />
+    </mesh>
   );
 };
 
