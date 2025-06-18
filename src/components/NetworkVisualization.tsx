@@ -30,21 +30,20 @@ const NetworkConnection = ({ start, end, color = '#8b5cf6' }: {
   end: [number, number, number];
   color?: string;
 }) => {
-  const lineRef = useRef<THREE.BufferGeometry>(null);
-
   const points = useMemo(() => {
-    const startVec = new THREE.Vector3(...start);
-    const endVec = new THREE.Vector3(...end);
-    return [startVec, endVec];
+    return new Float32Array([
+      start[0], start[1], start[2],
+      end[0], end[1], end[2]
+    ]);
   }, [start, end]);
 
   return (
     <line>
-      <bufferGeometry ref={lineRef}>
+      <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={points.length}
-          array={new Float32Array(points.flatMap(p => [p.x, p.y, p.z]))}
+          count={2}
+          array={points}
           itemSize={3}
         />
       </bufferGeometry>
