@@ -57,9 +57,9 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pt-20 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+        <div className="grid lg:grid-cols-3 gap-12 items-center min-h-screen">
           {/* Left Column - Content */}
-          <div className="text-white space-y-8">
+          <div className="lg:col-span-2 text-white space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2 bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm border border-green-400/30">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -105,37 +105,67 @@ const HeroSection = () => {
                 <div className="text-sm text-gray-400">Automatización</div>
               </div>
             </div>
-          </div>
 
-          {/* Right Column - Enhanced Features */}
-          <div className="space-y-6">
-            {features.map((feature, index) => (
-              <Card 
-                key={index} 
-                className="p-6 bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/10 group"
-                style={{ 
-                  animationDelay: `${index * 0.2}s`,
-                  transform: `translateZ(${index * 10}px)`
-                }}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <feature.icon className="w-6 h-6 text-white" />
+            {/* Features Grid */}
+            <div className="grid md:grid-cols-2 gap-4 pt-8">
+              {features.map((feature, index) => (
+                <Card 
+                  key={index} 
+                  className="p-4 bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/10 group"
+                  style={{ 
+                    animationDelay: `${index * 0.2}s`,
+                    transform: `translateZ(${index * 10}px)`
+                  }}
+                >
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0">
+                      <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <feature.icon className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-sm font-semibold text-white mb-1 group-hover:text-green-300 transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+                      <p className="text-xs text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                        {feature.description}
+                      </p>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-green-300 transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
-                      {feature.description}
-                    </p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column - WhatsApp Business Iframe */}
+          <div className="lg:col-span-1 flex justify-center items-center">
+            <div className="relative">
+              {/* Glowing Background Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl blur-xl"></div>
+              
+              {/* Iframe Container */}
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl">
+                <div className="text-center mb-4">
+                  <h3 className="text-white font-semibold text-lg mb-2">🚀 Prueba Nuestro BOT</h3>
+                  <p className="text-gray-300 text-sm">Interactúa con nuestro WhatsApp Business</p>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Card>
-            ))}
+                
+                <div className="relative overflow-hidden rounded-xl shadow-lg">
+                  <iframe
+                    src="https://business.facebook.com/wa/manage/flows/1450515702809607/preview/?token=1e25d44f-bd2c-4a1f-8eee-42c48aee7045"
+                    width="430"
+                    height="840"
+                    className="w-full max-w-[430px] h-[600px] lg:h-[700px] border-0 rounded-xl"
+                    title="WhatsApp Business Bot Demo"
+                  />
+                </div>
+                
+                <div className="text-center mt-4">
+                  <p className="text-green-300 text-sm font-medium">✨ Demo en Vivo ✨</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
