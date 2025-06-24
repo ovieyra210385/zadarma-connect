@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -100,19 +100,22 @@ const Soluciones = () => {
       icon: MessageSquare,
       title: "BOT de Atención al Cliente",
       description: "Resuelve el 80% de consultas automáticamente",
-      price: "Desde $99/mes"
+      price: "Desde $99/mes",
+      link: "/bot-atencion-cliente"
     },
     {
       icon: Users,
       title: "CRM WhatsApp Completo",
       description: "Gestiona todos tus contactos y conversaciones",
-      price: "Desde $199/mes"
+      price: "Desde $199/mes",
+      link: "/crm-whatsapp"
     },
     {
       icon: BarChart3,
       title: "Suite Marketing Digital",
       description: "Campañas masivas + Analytics avanzado",
-      price: "Desde $299/mes"
+      price: "Desde $299/mes",
+      link: "#"
     }
   ];
 
@@ -202,10 +205,19 @@ const Soluciones = () => {
                 <div className="text-2xl font-bold text-blue-600 mb-4">
                   {solution.price}
                 </div>
-                <Button className="w-full">
-                  Probar Gratis
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
+                {solution.link && solution.link !== '#' ? (
+                  <Link to={solution.link}>
+                    <Button className="w-full">
+                      Ver Detalles
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button className="w-full">
+                    Próximamente
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                )}
               </Card>
             ))}
           </div>
