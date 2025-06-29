@@ -390,7 +390,7 @@ const Index = () => {
                 Para consultas sobre privacidad, manejo de datos o ejercer tus derechos:
               </p>
               <ul className="text-gray-700 space-y-1">
-                <li>📧 Email: contacto@-pro.com</li>
+                <li>📧 Email: contacto@hielolapolar.com</li>
                 <li>📱 WhatsApp: +1 (555) PRIVACY</li>
                 <li>🕐 Horario: 24/7 via BOT, soporte humano 9AM-6PM</li>
               </ul>
