@@ -24,11 +24,11 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-              <Phone className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+              <MessageCircle className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Zadarma Connect
+            <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+              WhatsApp Business Pro
             </span>
           </Link>
 
@@ -40,8 +40,8 @@ const Navigation = () => {
                 to={item.path}
                 className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   location.pathname === item.path
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-green-600 bg-green-50'
+                    : 'text-gray-700 hover:text-green-600 hover:bg-gray-50'
                 }`}
               >
                 <item.icon className="w-4 h-4" />
@@ -52,8 +52,8 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600">
-              Prueba Gratuita
+            <Button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600">
+              Crear BOT Gratis
             </Button>
           </div>
 
@@ -79,8 +79,8 @@ const Navigation = () => {
                   to={item.path}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     location.pathname === item.path
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      ? 'text-green-600 bg-green-50'
+                      : 'text-gray-700 hover:text-green-600 hover:bg-gray-50'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -89,8 +89,8 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="pt-4">
-                <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600">
-                  Prueba Gratuita
+                <Button className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600">
+                  Crear BOT Gratis
                 </Button>
               </div>
             </div>

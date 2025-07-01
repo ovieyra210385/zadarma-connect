@@ -4,74 +4,115 @@ import Navigation from '@/components/Navigation';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
-  Phone, 
-  Zap, 
+  Bot, 
   Users, 
-  Settings,
+  MessageSquare, 
+  Phone,
+  Globe,
+  Wifi,
   Check,
   ArrowRight,
-  Cloud,
-  Headphones,
-  BarChart3
+  Shield,
+  Zap,
+  BarChart3,
+  MessageCircle,
+  Star
 } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 const Servicios = ()=>{
-  const services = [
+  const mainServices = [
     {
-      icon: Phone,
-      title: "PBX en la Nube",
-      description: "Centralita virtual completa con funcionalidades empresariales avanzadas",
+      icon: Bot,
+      title: "BOT WhatsApp Inteligente",
+      description: "Chatbot con IA avanzada que responde automáticamente a tus clientes las 24 horas del día",
       features: [
-        "Llamadas ilimitadas nacionales e internacionales",
-        "Grabación automática de todas las llamadas",
-        "Menús de voz personalizables y multi-idioma",
-        "Transferencia de llamadas inteligente",
-        "Buzón de voz con transcripción automática",
-        "Conferencias de hasta 100 participantes"
+        "Respuestas automáticas inteligentes",
+        "IA conversacional avanzada",
+        "Soporte para múltiples idiomas",
+        "Integración con bases de datos",
+        "Entrenamiento personalizado",
+        "Analytics de conversaciones"
       ],
-      price: "Desde $29/mes"
-    },
-    {
-      icon: Zap,
-      title: "Configuración Rápida",
-      description: "Setup instantáneo para tu sistema telefónico sin complicaciones",
-      features: [
-        "Configuración completa en menos de 5 minutos",
-        "Sin necesidad de hardware adicional",
-        "Configuración remota por nuestros expertos",
-        "Migración automática de números existentes",
-        "Interfaz intuitiva y fácil de usar",
-        "Soporte técnico 24/7 incluido"
-      ],
-      price: "Instalación gratuita"
+      price: "Desde $49/mes",
+      popular: true,
+      color: "from-green-500 to-emerald-500"
     },
     {
       icon: Users,
-      title: "Soluciones Empresariales",
-      description: "Adaptado a empresas de todos los tamaños y necesidades específicas",
+      title: "CRM WhatsApp Business",
+      description: "Gestiona todos tus contactos, conversaciones y ventas desde una plataforma centralizada",
       features: [
-        "Escalable desde 1 hasta 10,000+ usuarios",
-        "Personalización completa según tu negocio",
-        "Integración nativa con CRM populares",
-        "Gestión multi-ubicación centralizada",
-        "Perfiles de usuario con permisos específicos",
-        "API completa para desarrolladores"
+        "Gestión completa de contactos",
+        "Historial de conversaciones",
+        "Etiquetas y segmentación",
+        "Pipeline de ventas",
+        "Reportes y métricas",
+        "Integración con equipos"
       ],
-      price: "Consulta personalizada"
+      price: "Desde $79/mes",
+      popular: true,
+      color: "from-blue-500 to-indigo-500"
     },
     {
-      icon: Settings,
-      title: "Centro de Llamadas",
-      description: "Solución completa para call centers con herramientas profesionales",
+      icon: MessageSquare,
+      title: "Campañas Masivas",
+      description: "Envía mensajes promocionales y informativos a miles de contactos de forma segura",
       features: [
-        "Sistema de colas inteligente",
-        "Distribución automática de llamadas (ACD)",
-        "Grabación y monitoreo en tiempo real",
-        "Reportes detallados y dashboards",
-        "Integración con sistemas de tickets",
-        "Supervisión y coaching de agentes"
+        "Envío masivo seguro",
+        "Plantillas certificadas",
+        "Programación avanzada",
+        "Segmentación precisa",
+        "A/B Testing",
+        "Métricas de entrega"
       ],
-      price: "Desde $15/agente"
+      price: "Desde $99/mes",
+      popular: false,
+      color: "from-purple-500 to-pink-500"
+    }
+  ];
+
+  const additionalServices = [
+    {
+      icon: Phone,
+      title: "PBX en la Nube",
+      description: "Centralita virtual completa para empresas",
+      features: ["Llamadas ilimitadas", "Grabación automática", "Menús de voz", "Multi-idioma"]
+    },
+    {
+      icon: Globe,
+      title: "Números Virtuales",
+      description: "Números de teléfono virtuales en más de 150 países",
+      features: ["Cobertura global", "Portabilidad", "Configuración rápida", "Tarifas competitivas"]
+    },
+    {
+      icon: Wifi,
+      title: "eSIM Empresarial",
+      description: "Conectividad móvil para equipos distribuidos globalmente",
+      features: ["Activación inmediata", "Cobertura mundial", "Planes flexibles", "Gestión centralizada"]
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: Shield,
+      title: "API Oficial WhatsApp",
+      description: "Integración certificada y 100% segura con Meta"
+    },
+    {
+      icon: Zap,
+      title: "Automatización 24/7",
+      description: "Tu negocio nunca duerme con nuestros BOTs inteligentes"
+    },
+    {
+      icon: BarChart3,
+      title: "Analytics Avanzado",
+      description: "Métricas detalladas para optimizar tu estrategia"
+    },
+    {
+      icon: MessageCircle,
+      title: "Implementación Rápida",
+      description: "Tu BOT funcionando en menos de 24 horas"
     }
   ];
 
@@ -79,57 +120,101 @@ const Servicios = ()=>{
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Header */}
-      <section className="pt-24 pb-16 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
-            Nuestros Servicios
-          </h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Soluciones completas de telecomunicaciones diseñadas para impulsar 
-            la comunicación de tu empresa al siguiente nivel
-          </p>
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-100">
+              Servicios WhatsApp Business
+            </Badge>
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              Automatiza tu <span className="text-green-600">WhatsApp Business</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Descubre nuestros servicios especializados para transformar tu comunicación empresarial 
+              con BOTs inteligentes, CRM avanzado y campañas automatizadas
+            </p>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid md:grid-cols-4 gap-6 mb-16">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-6 h-6 text-green-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-sm text-gray-600">{benefit.description}</p>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20">
+      {/* Main Services Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {services.map((service, index) => (
-              <Card key={index} className="p-8 hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-start space-x-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Nuestros Servicios Principales
+            </h2>
+            <p className="text-xl text-gray-600">
+              Soluciones completas para automatizar y optimizar tu WhatsApp Business
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {mainServices.map((service, index) => (
+              <Card 
+                key={index} 
+                className={`relative p-8 hover:shadow-2xl transition-all duration-300 ${
+                  service.popular ? 'ring-2 ring-green-500 scale-105' : ''
+                }`}
+              >
+                {service.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-green-500 text-white hover:bg-green-500">
+                      <Star className="w-4 h-4 mr-1" />
+                      Más Popular
+                    </Badge>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-3 mb-6">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start text-gray-700">
-                          <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-blue-600">
-                        {service.price}
-                      </span>
-                      <Button>
-                        Más Información
-                        <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                    </div>
-                  </div>
+                )}
+                
+                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6`}>
+                  <service.icon className="w-8 h-8 text-white" />
                 </div>
+                
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  {service.title}
+                </h3>
+                
+                <p className="text-gray-600 mb-6">
+                  {service.description}
+                </p>
+                
+                <div className="mb-6">
+                  <span className="text-3xl font-bold text-gray-900">{service.price}</span>
+                </div>
+                
+                <ul className="space-y-3 mb-8">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-gray-700">
+                      <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className={`w-full ${
+                    service.popular 
+                      ? 'bg-green-500 hover:bg-green-600' 
+                      : 'bg-gray-900 hover:bg-gray-800'
+                  }`}
+                >
+                  Empezar Ahora
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
               </Card>
             ))}
           </div>
@@ -141,68 +226,60 @@ const Servicios = ()=>{
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Servicios Adicionales
+              Servicios Adicionales de Telecomunicaciones
             </h2>
             <p className="text-xl text-gray-600">
-              Complementa tu solución con estos servicios especializados
+              Completa tu infraestructura de comunicaciones empresariales
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <Cloud className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Números Virtuales
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Números locales en más de 150 países para expandir tu presencia global
-              </p>
-              <Button variant="outline" className="w-full">
-                Explorar Países
-              </Button>
-            </Card>
-
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <Headphones className="w-12 h-12 text-purple-500 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Soporte Premium
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Soporte técnico prioritario con tiempo de respuesta garantizado
-              </p>
-              <Button variant="outline" className="w-full">
-                Ver Planes
-              </Button>
-            </Card>
-
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <BarChart3 className="w-12 h-12 text-green-500 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Análisis Avanzado
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Reportes detallados y análisis de patrones de comunicación
-              </p>
-              <Button variant="outline" className="w-full">
-                Ver Demo
-              </Button>
-            </Card>
+            {additionalServices.map((service, index) => (
+              <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mb-4">
+                  <service.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  {service.description}
+                </p>
+                <ul className="space-y-1 mb-4">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
+                      <Check className="w-4 h-4 text-blue-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button variant="outline" className="w-full">
+                  Más Información
+                </Button>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            ¿Necesitas una Solución Personalizada?
+            ¿Listo para Automatizar tu WhatsApp Business?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Nuestros expertos pueden diseñar una solución específica para tu empresa
+          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+            Únete a miles de empresas que ya automatizan sus ventas con nuestros servicios
           </p>
-          <Button size="lg" variant="secondary" className="text-lg px-8">
-            Solicitar Consulta Gratuita
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="secondary" className="text-lg px-8">
+              Prueba Gratuita 30 Días
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600 text-lg px-8">
+              <MessageCircle className="mr-2 w-5 h-5" />
+              Hablar con Experto
+            </Button>
+          </div>
         </div>
       </section>
     </div>

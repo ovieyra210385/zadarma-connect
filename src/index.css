@@ -14,8 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 355 7% 97%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -23,7 +23,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 270 100% 70%;
+    --accent: 158 64% 52%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,11 +35,11 @@
 
     --radius: 0.5rem;
 
-    /* Custom telecoms colors */
-    --telecom-blue: 210 100% 50%;
-    --telecom-purple: 270 100% 70%;
-    --telecom-dark: 220 26% 14%;
-    --telecom-light: 210 40% 98%;
+    /* Custom WhatsApp colors */
+    --whatsapp-green: 142 76% 36%;
+    --whatsapp-green-light: 158 64% 52%;
+    --whatsapp-dark: 220 26% 14%;
+    --whatsapp-light: 142 40% 98%;
   }
 
   .dark {
@@ -49,13 +49,13 @@
     --card-foreground: 210 40% 98%;
     --popover: 220 26% 14%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 100% 50%;
+    --primary: 142 76% 36%;
     --primary-foreground: 220 26% 14%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 270 100% 70%;
+    --accent: 158 64% 52%;
     --accent-foreground: 210 40% 98%;
   }
 }
@@ -81,12 +81,12 @@
 }
 
 /* Gradient backgrounds */
-.gradient-telecom {
-  background: linear-gradient(135deg, hsl(var(--telecom-blue)) 0%, hsl(var(--telecom-purple)) 100%);
+.gradient-whatsapp {
+  background: linear-gradient(135deg, hsl(var(--whatsapp-green)) 0%, hsl(var(--whatsapp-green-light)) 100%);
 }
 
 .gradient-dark {
-  background: linear-gradient(135deg, hsl(var(--telecom-dark)) 0%, hsl(220, 26%, 20%) 100%);
+  background: linear-gradient(135deg, hsl(var(--whatsapp-dark)) 0%, hsl(220, 26%, 20%) 100%);
 }
 
 /* Animation utilities */
