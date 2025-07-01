@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -20,7 +21,54 @@ import {
   Globe
 } from 'lucide-react';
 
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
+
 const CrmWhatsapp = () => {
+  // Estado para contactos y carga
+  const [contacts, setContacts] = useState([]);
+  const [loadingContacts, setLoadingContacts] = useState(false);
+  const [errorContacts, setErrorContacts] = useState('');
+  const [newContact, setNewContact] = useState({ name: '', email: '', phone: '' });
+  const [creating, setCreating] = useState(false);
+  const [successMsg, setSuccessMsg] = useState('');
+
+  // Obtener contactos al cargar
+  useEffect(() => {
+    fetchContacts();
+  }, []);
+
+  async function fetchContacts() {
+    setLoadingContacts(true);
+    setErrorContacts('');
+    const { data, error } = await supabase.from('contacts').select('*').order('created_at', { ascending: false });
+    if (error) setErrorContacts(error.message);
+    else setContacts(data || []);
+    setLoadingContacts(false);
+  }
+
+  async function handleCreateContact(e) {
+    e.preventDefault();
+    setCreating(true);
+    setSuccessMsg('');
+    setErrorContacts('');
+    const { name, email, phone } = newContact;
+    if (!name || !email) {
+      setErrorContacts('Nombre y email son obligatorios');
+      setCreating(false);
+      return;
+    }
+    const { error } = await supabase.from('contacts').insert([{ name, email, phone }]);
+    if (error) setErrorContacts(error.message);
+    else {
+      setSuccessMsg('Contacto creado correctamente');
+      setNewContact({ name: '', email: '', phone: '' });
+      fetchContacts();
+    }
+    setCreating(false);
+  }
   const crmFeatures = [
     {
       icon: Database,
@@ -215,7 +263,73 @@ const CrmWhatsapp = () => {
         </div>
       </section>
 
-      {/* CRM Features */}
+      {/* Formulario y listado de contactos reales */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Contactos (Demo Real)</h2>
+            <p className="text-gray-600">Gestiona tus contactos reales de Supabase aquí</p>
+          </div>
+          <form onSubmit={handleCreateContact} className="max-w-xl mx-auto mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <input
+              className="border rounded px-3 py-2"
+              placeholder="Nombre"
+              value={newContact.name}
+              onChange={e => setNewContact({ ...newContact, name: e.target.value })}
+              required
+            />
+            <input
+              className="border rounded px-3 py-2"
+              placeholder="Email"
+              type="email"
+              value={newContact.email}
+              onChange={e => setNewContact({ ...newContact, email: e.target.value })}
+              required
+            />
+            <input
+              className="border rounded px-3 py-2"
+              placeholder="Teléfono"
+              value={newContact.phone}
+              onChange={e => setNewContact({ ...newContact, phone: e.target.value })}
+            />
+            <button
+              type="submit"
+              className="md:col-span-3 bg-green-600 text-white rounded px-6 py-2 mt-2 hover:bg-green-700 disabled:opacity-50"
+              disabled={creating}
+            >
+              {creating ? 'Creando...' : 'Crear Contacto'}
+            </button>
+          </form>
+          {successMsg && <div className="text-green-600 text-center mb-4">{successMsg}</div>}
+          {errorContacts && <div className="text-red-600 text-center mb-4">{errorContacts}</div>}
+          <div className="overflow-x-auto">
+            {loadingContacts ? (
+              <div className="text-center py-8">Cargando contactos...</div>
+            ) : (
+              <table className="min-w-full bg-white border rounded shadow">
+                <thead>
+                  <tr>
+                    <th className="py-2 px-4 border-b">Nombre</th>
+                    <th className="py-2 px-4 border-b">Email</th>
+                    <th className="py-2 px-4 border-b">Teléfono</th>
+                    <th className="py-2 px-4 border-b">Creado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {contacts.map((c, i) => (
+                    <tr key={c.id || i} className="hover:bg-gray-50">
+                      <td className="py-2 px-4 border-b">{c.name}</td>
+                      <td className="py-2 px-4 border-b">{c.email}</td>
+                      <td className="py-2 px-4 border-b">{c.phone}</td>
+                      <td className="py-2 px-4 border-b">{c.created_at ? new Date(c.created_at).toLocaleString() : ''}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        </div>
+      </section>
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
