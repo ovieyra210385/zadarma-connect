@@ -236,7 +236,193 @@ const CrmWhatsapp = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
+      {/* Soluciones WhatsApp Business */}
+      <section className="pt-20 pb-12 bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Soluciones WhatsApp Business</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Automatiza, gestiona y multiplica tus ventas con nuestras herramientas especializadas para WhatsApp Business</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* BOT WhatsApp Inteligente */}
+            <div className="relative bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-8 shadow group hover:shadow-lg transition">
+              <span className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Más Popular</span>
+              <h3 className="text-2xl font-bold text-green-700 mb-2">BOT WhatsApp Inteligente</h3>
+              <p className="text-gray-700 mb-4">Chatbot con IA que responde automáticamente a tus clientes las 24 horas</p>
+              <ul className="mb-6 space-y-2 text-gray-600 text-sm">
+                <li>Respuestas automáticas</li>
+                <li>IA conversacional</li>
+                <li>Múltiples idiomas</li>
+                <li>Integración API</li>
+              </ul>
+              <Button className="w-full bg-green-500 hover:bg-green-600 text-white" onClick={() => window.location.href = '/bot'}>Empezar Ahora</Button>
+            </div>
+            {/* CRM WhatsApp Business */}
+            <div className="relative bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-8 shadow group hover:shadow-lg transition">
+              <span className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Más Popular</span>
+              <h3 className="text-2xl font-bold text-green-700 mb-2">CRM WhatsApp Business</h3>
+              <p className="text-gray-700 mb-4">Administra todos tus contactos y conversaciones desde una sola plataforma</p>
+              <ul className="mb-6 space-y-2 text-gray-600 text-sm">
+                <li>Gestión de contactos</li>
+                <li>Historial completo</li>
+                <li>Etiquetas y filtros</li>
+                <li>Métricas detalladas</li>
+              </ul>
+              <Button className="w-full bg-green-500 hover:bg-green-600 text-white" onClick={() => window.location.href = '/crm-whatsapp'}>Empezar Ahora</Button>
+            </div>
+            {/* Campañas Masivas */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-8 shadow group hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold text-green-700 mb-2">Campañas Masivas</h3>
+              <p className="text-gray-700 mb-4">Envía mensajes promocionales y informativos a miles de contactos</p>
+              <ul className="mb-6 space-y-2 text-gray-600 text-sm">
+                <li>Envío masivo</li>
+                <li>Plantillas certificadas</li>
+                <li>Programación</li>
+                <li>Segmentación</li>
+              </ul>
+              <Button className="w-full bg-green-500 hover:bg-green-600 text-white" onClick={() => window.location.href = '/campanas'}>Empezar Ahora</Button>
+            </div>
+            {/* PBX en la Nube */}
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-8 shadow group hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold text-blue-700 mb-2">PBX en la Nube</h3>
+              <p className="text-gray-700 mb-4">Centralita virtual completa para empresas</p>
+              <ul className="mb-6 space-y-2 text-gray-600 text-sm">
+                <li>Llamadas ilimitadas</li>
+                <li>Grabación automática</li>
+                <li>Menús de voz</li>
+                <li>Multi-idioma</li>
+              </ul>
+              <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white" onClick={() => window.location.href = '/pbx'}>Más Información</Button>
+            </div>
+            {/* Números Virtuales */}
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-8 shadow group hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold text-blue-700 mb-2">Números Virtuales</h3>
+              <p className="text-gray-700 mb-4">Números de teléfono virtuales en más de 150 países</p>
+              <ul className="mb-6 space-y-2 text-gray-600 text-sm">
+                <li>Cobertura global</li>
+                <li>Portabilidad</li>
+                <li>Configuración rápida</li>
+                <li>Tarifas competitivas</li>
+              </ul>
+              <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white" onClick={() => window.location.href = '/numeros'}>Más Información</Button>
+            </div>
+            {/* eSIM Empresarial */}
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-8 shadow group hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold text-blue-700 mb-2">eSIM Empresarial</h3>
+              <p className="text-gray-700 mb-4">Conectividad móvil para equipos distribuidos globalmente</p>
+              <ul className="mb-6 space-y-2 text-gray-600 text-sm">
+                <li>Activación inmediata</li>
+                <li>Cobertura mundial</li>
+                <li>Planes flexibles</li>
+                <li>Gestión centralizada</li>
+              </ul>
+              <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white" onClick={() => window.location.href = '/esim'}>Más Información</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ventajas de las Soluciones WhatsApp */}
+      <section className="py-16 bg-gray-50 border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">¿Por Qué Elegir Nuestras Soluciones WhatsApp?</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Ventajas que nos hacen líderes en automatización de WhatsApp Business</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-6 shadow border-l-4 border-green-500">
+              <h4 className="font-bold text-green-700 mb-2">Automatización Total</h4>
+              <p className="text-gray-700">BOT que maneja el 80% de consultas automáticamente</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow border-l-4 border-green-500">
+              <h4 className="font-bold text-green-700 mb-2">API Oficial WhatsApp</h4>
+              <p className="text-gray-700">Integración certificada y 100% segura</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow border-l-4 border-green-500">
+              <h4 className="font-bold text-green-700 mb-2">Analytics Avanzado</h4>
+              <p className="text-gray-700">Métricas detalladas de conversaciones y ventas</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow border-l-4 border-green-500">
+              <h4 className="font-bold text-green-700 mb-2">Integración CRM</h4>
+              <p className="text-gray-700">Conecta con tu sistema actual sin problemas</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow border-l-4 border-green-500">
+              <h4 className="font-bold text-green-700 mb-2">Política de Privacidad y Manejo de Datos</h4>
+              <p className="text-gray-700">Transparencia total en el manejo de información y comunicaciones</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow border-l-4 border-green-500">
+              <h4 className="font-bold text-green-700 mb-2">Protección de Datos</h4>
+              <ul className="text-gray-700 text-sm list-disc ml-5">
+                <li>Cifrado end-to-end en todas las comunicaciones</li>
+                <li>Almacenamiento seguro con protocolos ISO 27001</li>
+                <li>Acceso restringido solo a personal autorizado</li>
+                <li>Eliminación automática de datos según políticas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Privacidad y Cumplimiento */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Política de Privacidad y Cumplimiento</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Compromiso total con la protección de datos y la normativa vigente</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-xl p-6 shadow border-l-4 border-emerald-500">
+              <h4 className="font-bold text-emerald-700 mb-2">Consentimiento y Uso</h4>
+              <ul className="text-gray-700 text-sm list-disc ml-5">
+                <li>Opt-in explícito para todas las comunicaciones</li>
+                <li>Opción de unsubscribe en cada mensaje</li>
+                <li>Uso limitado a fines comerciales autorizados</li>
+                <li>Respeto total a preferencias del usuario</li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6 shadow border-l-4 border-emerald-500">
+              <h4 className="font-bold text-emerald-700 mb-2">Cumplimiento Normativo</h4>
+              <ul className="text-gray-700 text-sm list-disc ml-5">
+                <li>Conformidad con políticas de Meta/WhatsApp</li>
+                <li>Cumplimiento GDPR y LGPD</li>
+                <li>Auditorías regulares de seguridad</li>
+                <li>Certificaciones de calidad vigentes</li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6 shadow border-l-4 border-emerald-500">
+              <h4 className="font-bold text-emerald-700 mb-2">Derechos del Usuario</h4>
+              <ul className="text-gray-700 text-sm list-disc ml-5">
+                <li>Acceso completo a datos personales</li>
+                <li>Derecho de rectificación y eliminación</li>
+                <li>Portabilidad de datos garantizada</li>
+                <li>Soporte dedicado para consultas de privacidad</li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <h4 className="font-bold text-gray-900 mb-2">Contacto para Asuntos de Privacidad</h4>
+            <p className="text-gray-700 mb-1">Para consultas sobre privacidad, manejo de datos o ejercer tus derechos:</p>
+            <div className="flex flex-col items-center space-y-1 text-gray-700 text-sm">
+              <span>📧 Email: <a href="mailto:contacto@hielolapolar.com" className="text-green-700 underline">contacto@hielolapolar.com</a></span>
+              <span>📱 WhatsApp: +1 (555) PRIVACY</span>
+              <span>🕐 Horario: 24/7 via BOT, soporte humano 9AM-6PM</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Automatización */}
+      <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-600">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">¿Listo para Automatizar tu WhatsApp Business?</h2>
+          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">Únete a miles de empresas que ya automatizan sus ventas con nuestro BOT y CRM para WhatsApp</p>
+          <Button size="lg" variant="secondary" className="text-lg px-8">
+            Crear BOT Gratis por 30 Días
+          </Button>
+        </div>
+      </section>
+
       {/* Header */}
       <section className="pt-24 pb-16 bg-gradient-to-r from-green-600 to-emerald-600">
         <div className="container mx-auto px-4 text-center">

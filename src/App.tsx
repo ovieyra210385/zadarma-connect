@@ -13,7 +13,13 @@ import Recursos from "./pages/Recursos";
 import Contacto from "./pages/Contacto";
 import BotAtencionCliente from "./pages/BotAtencionCliente";
 import CrmWhatsapp from "./pages/CrmWhatsapp";
+
 import NotFound from "./pages/NotFound";
+import BotWhatsapp from "./pages/BotWhatsapp";
+import Campanas from "./pages/Campanas";
+import Pbx from "./pages/Pbx";
+import Numeros from "./pages/Numeros";
+import Esim from "./pages/Esim";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +39,12 @@ const App = () => (
           <Route path="/crm-whatsapp" element={<CrmWhatsapp />} />
           <Route path="/recursos" element={<Recursos />} />
           <Route path="/contacto" element={<Contacto />} />
+          {/* Rutas de soluciones */}
+          <Route path="/bot" element={<BotWhatsapp />} />
+          <Route path="/campanas" element={<Campanas />} />
+          <Route path="/pbx" element={<Pbx />} />
+          <Route path="/numeros" element={<Numeros />} />
+          <Route path="/esim" element={<Esim />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
