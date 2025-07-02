@@ -9,6 +9,30 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      analytics: {
+        Row: {
+          created_at: string | null
+          event: string
+          id: string
+          meta: Json | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          event: string
+          id?: string
+          meta?: Json | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          event?: string
+          id?: string
+          meta?: Json | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       bot_settings: {
         Row: {
           created_at: string | null
@@ -30,6 +54,60 @@ export type Database = {
           setting_key?: string
           setting_value?: string | null
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      campaigns: {
+        Row: {
+          created_at: string | null
+          id: string
+          message: string
+          name: string
+          recipients: string
+          status: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          message: string
+          name: string
+          recipients: string
+          status?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          message?: string
+          name?: string
+          recipients?: string
+          status?: string | null
+        }
+        Relationships: []
+      }
+      contacts: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          name: string
+          phone: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          name: string
+          phone?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          name?: string
+          phone?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
